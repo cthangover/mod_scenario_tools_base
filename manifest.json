@@ -1,0 +1,15 @@
+{
+  "id": "scenario_tools_base",
+  "name": "Scenario Authoring Base",
+  "version": "1.0.0",
+  "author": "ct",
+  "description": "Shared scenario file access, syntax and graph models for authoring tools. No tool windows.",
+  "category": "engine, library",
+  "sources": [
+    "src/**/*.cs"
+  ],
+  "depends": [
+    "tools_base>=1",
+    "dialog_base>=1"
+  ]
+}

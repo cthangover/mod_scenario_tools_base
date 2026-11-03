@@ -102,6 +102,7 @@ namespace Cthangover.Tools.Services
             {
                 var files = new List<ScenarioFileInfo>();
                 CollectScenarioFiles(manager, mod.Id, ScenariosDir, files);
+                CollectScenarioFiles(manager, mod.Id, "patches/scenarios", files);
                 if (files.Count == 0)
                     continue;
 

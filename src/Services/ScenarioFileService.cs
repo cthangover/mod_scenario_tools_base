@@ -299,10 +299,11 @@ namespace Cthangover.Tools.Services
             return ModManager.Instance.GetFileSystemPath(modId, relativePath);
         }
 
-        /// <summary>Project-style display path (<c>mods/&lt;modId&gt;/&lt;relativePath&gt;</c>).</summary>
+        /// <summary>Display path under the actual provider root, or a mod key when the provider is unavailable.</summary>
         public static string GetDisplayPath(string modId, string relativePath)
         {
-            return "mods/" + modId + "/" + relativePath;
+            var root = ModManager.Instance.GetMod(modId)?.FileProvider?.RootPath;
+            return string.IsNullOrEmpty(root) ? MakeKey(modId, relativePath) : root.Replace('\\', '/').TrimEnd('/') + "/" + relativePath;
         }
 
         /// <summary>Scans every mod's scenarios and builds the cross-scene graph (nodes per scene, edges per switch target).</summary>
